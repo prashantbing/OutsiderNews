@@ -99,3 +99,6 @@ android {
         implementation(libs.kotlinx.coroutines.android)
     }
 }
+dependencies {
+    implementation(project(":domain"))
+}
