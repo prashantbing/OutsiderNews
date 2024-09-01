@@ -18,24 +18,18 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "di"
             isStatic = true
         }
     }
 
     sourceSets {
-
-        dependencies {
-            implementation(project(":data"))
-        }
-
         commonMain.dependencies {
-
-            implementation(libs.ktor.client.core)
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(project(":domain"))
             implementation(project(":data"))
+            implementation(project.dependencies.platform(libs.koin.bom))
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
 
         }
         commonTest.dependencies {
@@ -45,7 +39,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.multiplatform.domain"
+    namespace = "com.multiplatform.di"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
@@ -54,8 +48,4 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-}
-
-dependencies {
-    implementation(project(":data"))
 }
