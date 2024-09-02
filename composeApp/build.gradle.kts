@@ -61,6 +61,8 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(project(":di"))
             implementation(project(":domain"))
+            implementation(project(":utility"))
+
             implementation(libs.navigation.compose)
 
 
@@ -109,5 +111,6 @@ android {
 dependencies {
     implementation(project(":di"))
     implementation(project(":domain"))
+    implementation(project(":utility"))
 }
 

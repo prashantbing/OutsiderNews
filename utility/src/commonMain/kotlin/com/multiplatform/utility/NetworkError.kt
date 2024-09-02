@@ -1,6 +1,6 @@
-package com.multiplatform.data
+package com.multiplatform.utility
 
-import com.multiplatform.data.Error
+import com.multiplatform.utility.Error
 
 enum class NetworkError : Error {
     REQUEST_TIMEOUT,

@@ -27,6 +27,8 @@ kotlin {
 
         dependencies {
             implementation(project(":data"))
+            implementation(project(":utility"))
+
         }
 
         commonMain.dependencies {
@@ -36,7 +38,7 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(project(":data"))
-
+            implementation(project(":utility"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -58,4 +60,5 @@ android {
 
 dependencies {
     implementation(project(":data"))
+    implementation(project(":utility"))
 }

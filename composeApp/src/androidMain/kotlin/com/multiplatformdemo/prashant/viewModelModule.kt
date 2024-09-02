@@ -1,10 +1,9 @@
 package com.multiplatformdemo.prashant
 
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.multiplatformdemo.prashant.home.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
 actual val viewModelModule = module {
-    viewModel { AppViewModel(get()) }
+    viewModel { HomeViewModel(get()) }
 }

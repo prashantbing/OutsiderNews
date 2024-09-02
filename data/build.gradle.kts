@@ -1,10 +1,10 @@
+import java.util.Properties
 
 plugins {
 
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinxSerialization)
-
 }
 
 kotlin {
@@ -22,7 +22,10 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)        }
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(project(":utility"))
+
+        }
     }
 }
 
@@ -41,4 +44,9 @@ android {
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
+dependencies {
+    implementation(project(":utility"))
 }

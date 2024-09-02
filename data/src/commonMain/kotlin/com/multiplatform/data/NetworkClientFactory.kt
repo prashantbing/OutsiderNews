@@ -1,6 +1,5 @@
 package com.multiplatform.data
 
-import com.multiplatform.data.NetworkClient
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json

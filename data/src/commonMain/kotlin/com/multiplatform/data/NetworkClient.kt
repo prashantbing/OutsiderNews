@@ -9,6 +9,9 @@ import io.ktor.client.request.url
 import io.ktor.client.statement.HttpResponse
 import io.ktor.util.network.UnresolvedAddressException
 import kotlinx.serialization.SerializationException
+import com.multiplatform.utility.Result
+import com.multiplatform.utility.Error
+import com.multiplatform.utility.NetworkError
 
 class NetworkClient ( val httpClient: HttpClient){
 

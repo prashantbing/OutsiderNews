@@ -1,6 +1,10 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("com.github.gmazzo.buildconfig") version "5.4.0"
+
 }
 
 kotlin {
@@ -18,19 +22,14 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "di"
+            baseName = "utility"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":domain"))
-            implementation(project(":data"))
-            implementation(project.dependencies.platform(libs.koin.bom))
-            api(libs.koin.core)
-            implementation(libs.koin.compose)
-
+            //put your multiplatform dependencies here
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -39,7 +38,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.multiplatform.di"
+    namespace = "com.multiplatform.utility"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
@@ -49,6 +48,15 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
-dependencies {
-    implementation(project(":utility"))
+
+val  properties =  Properties()
+properties.load(project.rootProject.file("local.properties").inputStream())
+
+
+buildConfig {
+    buildConfigField("APP_NAME", project.name)
+    buildConfigField("APP_VERSION", provider { "\"${project.version}\"" })
+    buildConfigField("API_KEY",  properties.getProperty("API_KEY"))
+    buildConfigField("BASE_URL",  properties.getProperty("API_KEY"))
+
 }

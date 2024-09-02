@@ -12,11 +12,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import org.jetbrains.compose.resources.ExperimentalResourceApi
+import com.multiplatformdemo.prashant.home.HomeViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinContext
 import org.koin.compose.currentKoinScope
-
 
 @Composable
 @Preview
@@ -29,7 +28,7 @@ fun App() {
                 startDestination = "screenA"
             ) {
                 composable("screenA") {
-                    val viewModel = koinViewModel<AppViewModel>()
+                    val viewModel = koinViewModel<HomeViewModel>()
                    // val timer by viewModel.timer.collectAsState()
                     Box(
                         modifier = Modifier
