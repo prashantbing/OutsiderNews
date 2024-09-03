@@ -9,8 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
@@ -40,10 +41,10 @@ fun Home(articles: SnapshotStateList<Article>){
 @Composable
 fun ArticleItem(article: Article) {
     Column(Modifier.height(211.dp).padding(horizontal = 24.dp)) {
-        Text(style = textSource, text = article.source?.name.orEmpty(), color = MaterialTheme.colors.primary)
+        Text(style = textSource, text = article.source?.name.orEmpty(), color = MaterialTheme.colorScheme.primary)
         Spacer(Modifier.size(8.dp))
         Row(Modifier.height(105.dp)) {
-            Text(modifier = Modifier.weight(196f), style = textTitle, text = article.title.orEmpty(), color = MaterialTheme.colors.onSurface, overflow = TextOverflow.Ellipsis)
+            Text(modifier = Modifier.weight(196f), style = textTitle, text = article.title.orEmpty(), color = MaterialTheme.colorScheme.onSurface, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.size(8.dp))
             AsyncImage(modifier = Modifier.weight(92f).height(86.dp),
             model = article.urlToImage,
@@ -53,7 +54,7 @@ fun ArticleItem(article: Article) {
 
      )
         }
-        Text( style = textDescription, text = article.description.orEmpty(), color = MaterialTheme.colors.onSurface, overflow = TextOverflow.Ellipsis)
+        Text( style = textDescription, text = article.description.orEmpty(), color = MaterialTheme.colorScheme.onSurface, overflow = TextOverflow.Ellipsis)
         Spacer(Modifier.size(8.dp))
 
     }

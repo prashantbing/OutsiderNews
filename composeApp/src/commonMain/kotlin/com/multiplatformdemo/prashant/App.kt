@@ -1,12 +1,11 @@
 package com.multiplatformdemo.prashant
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -14,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.multiplatformdemo.prashant.home.Home
 import com.multiplatformdemo.prashant.home.HomeViewModel
+import com.multiplatformdemo.prashant.home.LatoTypography
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinContext
 import org.koin.compose.currentKoinScope
@@ -21,8 +21,11 @@ import org.koin.compose.currentKoinScope
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    MaterialTheme(      typography = LatoTypography(),) {
         KoinContext {
+            CompositionLocalProvider(LocalTextStyle provides
+                    MaterialTheme.typography.displaySmall
+            ) {
             val navController = rememberNavController()
             NavHost(
                 navController = navController,
@@ -35,6 +38,7 @@ fun App() {
                     Home(state.article)
 
                 }
+            }
             }
         }
     }
