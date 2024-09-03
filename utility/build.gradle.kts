@@ -57,6 +57,6 @@ buildConfig {
     buildConfigField("APP_NAME", project.name)
     buildConfigField("APP_VERSION", provider { "\"${project.version}\"" })
     buildConfigField("API_KEY",  properties.getProperty("API_KEY"))
-    buildConfigField("BASE_URL",  properties.getProperty("API_KEY"))
+    buildConfigField("BASE_URL",  properties.getProperty("BASE_URL"))
 
 }
