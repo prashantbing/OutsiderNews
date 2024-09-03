@@ -6,9 +6,11 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.multiplatformdemo.prashant.home.FontSize.large
 import com.multiplatformdemo.prashant.home.FontSize.small
+import com.multiplatformdemo.prashant.home.FontSize.tripleXL
 import kmpdemo.composeapp.generated.resources.Res
 import kmpdemo.composeapp.generated.resources.lato_black
 import kmpdemo.composeapp.generated.resources.lato_bold
@@ -73,3 +75,6 @@ get() = textInput.copy(fontSize = large, fontWeight = FontWeight.ExtraBold)
 
 val textDescription @Composable
 get() = textInput.copy(fontSize = small, fontWeight = FontWeight.Normal)
+
+val textTopBar @Composable
+get() = textInput.copy(fontSize = tripleXL, fontWeight = FontWeight.Bold, letterSpacing = 6.sp)
