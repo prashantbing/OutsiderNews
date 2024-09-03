@@ -12,6 +12,7 @@ import kotlinx.serialization.SerializationException
 import com.multiplatform.utility.Result
 import com.multiplatform.utility.Error
 import com.multiplatform.utility.NetworkError
+import io.ktor.serialization.JsonConvertException
 
 class NetworkClient ( val httpClient: HttpClient){
 
@@ -36,6 +37,8 @@ class NetworkClient ( val httpClient: HttpClient){
         } catch (e: UnresolvedAddressException) {
             return Result.Error(NetworkError.NO_INTERNET)
         } catch (e: SerializationException) {
+            return Result.Error(NetworkError.SERIALIZATION)
+        }catch (e: JsonConvertException) {
             return Result.Error(NetworkError.SERIALIZATION)
         }
 

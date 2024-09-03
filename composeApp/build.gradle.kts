@@ -59,6 +59,12 @@ kotlin {
             implementation(project.dependencies.platform(libs.koin.bom))
             api(libs.koin.core)
             implementation(libs.koin.compose)
+
+            implementation(libs.coil.compose.core)
+            implementation(libs.coil.compose)
+            implementation(libs.coil)
+            implementation(libs.coil.network.ktor)
+
             implementation(project(":di"))
             implementation(project(":domain"))
             implementation(project(":utility"))
@@ -106,6 +112,8 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
         implementation(libs.kotlinx.coroutines.android)
+        debugImplementation(libs.androidx.ui.tooling)
+        implementation(libs.androidx.ui.tooling.preview)
     }
 }
 dependencies {

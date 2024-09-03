@@ -12,6 +12,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.multiplatformdemo.prashant.home.Home
 import com.multiplatformdemo.prashant.home.HomeViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinContext
@@ -29,16 +30,10 @@ fun App() {
             ) {
                 composable("screenA") {
                     val viewModel = koinViewModel<HomeViewModel>()
-                   // val timer by viewModel.timer.collectAsState()
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = ""//timer.toString()
-                        )
-                    }
+                    val state by viewModel.state.collectAsState()
+
+                    Home(state.article)
+
                 }
             }
         }
