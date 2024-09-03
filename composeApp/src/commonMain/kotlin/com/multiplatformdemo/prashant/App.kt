@@ -1,11 +1,7 @@
 package com.multiplatformdemo.prashant
 
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -13,13 +9,11 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.toUpperCase
@@ -33,6 +27,9 @@ import com.multiplatformdemo.prashant.home.Home
 import com.multiplatformdemo.prashant.home.HomeViewModel
 import com.multiplatformdemo.prashant.home.LatoTypography
 import com.multiplatformdemo.prashant.home.textTopBar
+import kmpdemo.composeapp.generated.resources.Res
+import kmpdemo.composeapp.generated.resources.ic_navigation
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinContext
 import org.koin.compose.currentKoinScope
@@ -55,7 +52,8 @@ fun App() {
 
                         },
                         navigationIcon =  {
-                            Icon(  Icons.Default.Menu, null, modifier = Modifier.fillMaxHeight())
+
+                            Icon(  painterResource( Res.drawable.ic_navigation), null, modifier = Modifier.fillMaxHeight().padding(start = 16.dp))
 
                         },
                         actions = {},
