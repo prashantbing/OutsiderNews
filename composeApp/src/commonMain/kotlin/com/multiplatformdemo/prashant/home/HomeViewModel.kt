@@ -24,7 +24,7 @@ class HomeViewModel(val getArticlesUc: GetArticlesUc): ViewModel() {
     private fun getArticles() = viewModelScope.launch {
 
         when (val result =getArticlesUc()) {
-            is Error -> Unit
+            is Error -> println("error :$result")
             is Success -> {
 _state.value.article.clear()
 _state.value.article.addAll(result.data.data.orEmpty())
