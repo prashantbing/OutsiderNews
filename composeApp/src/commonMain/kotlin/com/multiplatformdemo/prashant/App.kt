@@ -1,9 +1,6 @@
 package com.multiplatformdemo.prashant
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,7 +15,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.toUpperCase
@@ -43,7 +39,11 @@ import org.koin.compose.currentKoinScope
 @Composable
 @Preview
 fun App() {
-    MaterialTheme(      typography = LatoTypography(),) {
+    MaterialTheme(      typography = LatoTypography(), colorScheme = colorScheme) {
+
+
+
+
         KoinContext {
             CompositionLocalProvider(LocalTextStyle provides
                     MaterialTheme.typography.displaySmall
